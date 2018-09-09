@@ -7,5 +7,7 @@ cp node.json /etc/chef
 cp solo.rb /etc/chef
 cp -r cookbooks /etc/chef
 
+cp run_chef.sh /usr/local/bin/
+
 #test run
-chef-solo -c /etc/chef/solo.rb
+run_chef.sh
