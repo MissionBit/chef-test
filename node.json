@@ -1,0 +1,12 @@
+{
+  "run_list": [
+    "recipe[missionbit::default]"
+  ],
+  
+  "packages" : [
+ 	"wget"
+  ],
+
+  "homedir" : "/Users/missionbit",
+  "user" : "missionbit"
+}
