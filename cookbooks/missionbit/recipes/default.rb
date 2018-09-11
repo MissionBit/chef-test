@@ -10,7 +10,7 @@
 bash 'run munki'  do
    code "defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL #{	node['cpe_munki']['preferences']['SoftwareRepoURL']} && /usr/local/munki/managedsoftwareupdate && /usr/local/munki/managedsoftwareupdate --installonly"
    live_stream true
-   notifies   :run, "bash[setup dock]", :immediately
+   #notifies   :run, "bash[setup dock]", :immediately
 end
 
 #
@@ -22,9 +22,9 @@ cookbook_file '/usr/local/bin/dockutil' do
   owner 'root'
   group 'wheel'
   mode  '0755'
-  action :nothing
-  subscribes :create, "bash[run munki]", :immediately
-  notifies   :run, "bash[setup dock]", :immediately
+  action :create
+  #subscribes :create, "bash[run munki]", :immediately
+  #notifies   :run, "bash[setup dock]", :immediately
 end
 
 bash 'setup dock' do
@@ -40,5 +40,5 @@ bash 'setup dock' do
 
 	EOF
 	live_stream true
-	action :nothing
+	action :run
 end
