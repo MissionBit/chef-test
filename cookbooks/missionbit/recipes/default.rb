@@ -6,6 +6,7 @@
 
 bash 'run munki'  do
    code "defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL #{	node['cpe_munki']['preferences']['SoftwareRepoURL']} && /usr/local/munki/managedsoftwareupdate && /usr/local/munki/managedsoftwareupdate --installonly"
+   live_stream true
 end
 
 
