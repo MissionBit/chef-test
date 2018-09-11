@@ -16,7 +16,7 @@ end
 # Install script to manage dock items, from
 #   https://github.com/kcrawford/dockutil 
 #
-cookbook_file '/usr/loca/bin/dockutil' do 
+cookbook_file '/usr/local/bin/dockutil' do 
   source 'dockutil'
   owner 'root'
   group 'wheel'
