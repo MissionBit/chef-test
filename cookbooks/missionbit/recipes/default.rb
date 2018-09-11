@@ -29,6 +29,6 @@ bash 'setup dock' do
 		/usr/local/bin/dockutil --remove all
 	EOF
 	live_stream true
-	action :none
+	action :nothing
 	subscribes :run, "bash[run munki]", :immediately
 end
