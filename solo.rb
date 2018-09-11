@@ -3,7 +3,8 @@
 root_path = File.expand_path(File.dirname(__FILE__))
 
 cookbook_path   File.join(root_path, 'cookbooks')
-json_attribs   File.join(root_path, 'node.json') 
+json_attribs    File.join(root_path, 'node.json') 
+role_path       "#{role_path}/roles"
 
 # Move all the state stuff from /var/chef. I wish there was a single config
 # variable for this!
