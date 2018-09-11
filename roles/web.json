@@ -3,8 +3,8 @@
  "json_class": "Chef::Role",
  "chef_type": "role",
  "run_list": [
-   "recipe[missionbit::default]",
-   "recipe[cpe_munki::default]"
+   "recipe[cpe_munki::default]",
+   "recipe[missionbit::default]"
  ],
  "override_attributes":{
     "cpe_munki": {
