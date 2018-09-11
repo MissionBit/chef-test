@@ -4,9 +4,15 @@
   ],
   
   "packages" : [
- 	"wget"
   ],
 
+  "cpe_munki": {
+     "install" : true,
+     "configure" : true
+  }
+  
   "homedir" : "/Users/missionbit",
   "user" : "missionbit"
+
+  
 }
