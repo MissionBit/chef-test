@@ -29,6 +29,14 @@ end
 bash 'setup dock' do
 	code <<-EOF
 		/usr/local/bin/dockutil --remove all
+    /usr/local/bin/dockutil --add /Applications/Utilities/Terminal.app
+    /usr/local/bin/dockutil --add /Applications/Brackets.app
+    #TODO: sublime
+    /usr/local/bin/dockutil --add /Applications/Google\ Chrome.app
+    /usr/local/bin/dockutil --add /Applications/Firefox.app
+    /usr/local/bin/dockutil --add /Applications/GitHub\ Desktop.app
+    /usr/local/bin/dockutil --add '~/Downloads'
+
 	EOF
 	live_stream true
 	action :nothing
