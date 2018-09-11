@@ -21,7 +21,9 @@ cookbook_file '/usr/loca/bin/dockutil' do
   owner 'root'
   group 'wheel'
   mode  '0755'
-  action :create
+  action :nothing
+  subscribes :create, "bash[run munki]", :immediately
+  notifies   :run, "bash[setup dock]", :immediately
 end
 
 bash 'setup dock' do
@@ -30,5 +32,4 @@ bash 'setup dock' do
 	EOF
 	live_stream true
 	action :nothing
-	subscribes :run, "bash[run munki]", :immediately
 end
