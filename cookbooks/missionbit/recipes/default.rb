@@ -32,7 +32,8 @@ bash 'setup dock' do
 		/usr/local/bin/dockutil --remove all
     /usr/local/bin/dockutil --add /Applications/Utilities/Terminal.app
     /usr/local/bin/dockutil --add /Applications/Brackets.app
-    #TODO: sublime
+    /usr/local/bin/dockutil --add "/Applications/Sublime Text.app"
+    /usr/local/bin/dockutil --add "/Applications/Visual Studio Code.app"
     /usr/local/bin/dockutil --add "/Applications/Google Chrome.app"
     /usr/local/bin/dockutil --add /Applications/Firefox.app
     /usr/local/bin/dockutil --add "/Applications/GitHub Desktop.app"
@@ -42,3 +43,4 @@ bash 'setup dock' do
 	live_stream true
 	action :run
 end
+
