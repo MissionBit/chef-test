@@ -1,6 +1,7 @@
 {
   "run_list": [
-    "recipe[missionbit::default]"
+    "recipe[missionbit::default]",
+    "recipe[cpe_munki::default]"
   ],
   
   "packages" : [
