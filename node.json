@@ -10,11 +10,19 @@
   "cpe_munki": {
      "install" : true,
      "configure" : true,
+     "local" : {
+       "managed_installs":[
+         "brackets"
+       ]
+     },
+     "preferences": {
+        "SoftwareRepoURL": "http://10.0.13.119/munki_repo/"
+     },
      "munki_version_to_install": {
         "core":{
            "version": "3.3.1.3537",
            "checksum": "7077cef8baafd501911117327a511aad7b1bc54cf31113e5c6b7407340d3407f",
-           "url": "10.0.13.119/munki_repo/munkitools-3.3.1.3537.pkg"
+           "url": "http://10.0.13.119/munki_repo/munkitools-3.3.1.3537.pkg"
         }
      }
   },
