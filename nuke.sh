@@ -1,6 +1,18 @@
 #!/bin/bash
 
-if ! [ -x "/usr/local/bin/managedsoftwareupdate"]
+echo "💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣"
+echo "💣 WARNING: "
+echo "💣 This script will request a full re-install of OSX"
+echo "💣 and DELETE YOUR HARD DISK CONTENTS"
+echo "💣 Please press control+c in the next 20 seconds if "
+echo "💣 you do not want to do this!!"
+echo "💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣💣"
+
+sleep 20
+
+echo "Okay, let's take off and nuke it from orbit."
+
+if ! [ -x "/usr/local/munki/managedsoftwareupdate" ] ; then
 	curl -L https://www.opscode.com/chef/install.sh | bash
 
 	mkdir /etc/chef
@@ -14,5 +26,10 @@ if ! [ -x "/usr/local/bin/managedsoftwareupdate"]
 fi
 
 #Run Munki with role to re-install
+defaults write /Library/Preferences/ManagedInstalls InstallAppleSoftwareUpdates -bool True
 defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL http://10.0.13.119/munki_repo/
-/usr/local/bin/managedsoftwareupdate id=nuke
+/usr/local/munki/managedsoftwareupdate --id=nuke
+/usr/local/munki/managedsoftwareupdate --id=nuke --installonly
+
+#Now reboot for install
+reboot
