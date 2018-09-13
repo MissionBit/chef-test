@@ -1,0 +1,16 @@
+{
+ "name": "unity",
+ "json_class": "Chef::Role",
+ "chef_type": "role",
+ "run_list": [
+   "recipe[cpe_munki::default]",
+   "recipe[missionbit::default]"
+ ],
+ "override_attributes":{
+    "cpe_munki": {
+       "preferences": {
+          "SoftwareRepoURL": "http://10.0.13.119/munki_repo/"
+        }
+    }
+ }
+}
