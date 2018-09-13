@@ -38,7 +38,7 @@ dock_items=[
   '~/Downloads'
 ] + node['missionbit']['dock_extras']
 
-dock_script = "/usr/local/bin/dockutil --remove all\n" + dock_items.collect{|i| "/usr/local/bin/dockutil --add #{i}"}.join("\n")
+dock_script = "/usr/local/bin/dockutil --remove all\n" + dock_items.collect{|i| "/usr/local/bin/dockutil --add \"#{i}\""}.join("\n")
 
 bash 'setup dock' do
 	code dock_script
