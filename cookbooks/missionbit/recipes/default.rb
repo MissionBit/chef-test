@@ -27,19 +27,21 @@ cookbook_file '/usr/local/bin/dockutil' do
   #notifies   :run, "bash[setup dock]", :immediately
 end
 
-bash 'setup dock' do
-	code <<-EOF
-		/usr/local/bin/dockutil --remove all
-    /usr/local/bin/dockutil --add /Applications/Utilities/Terminal.app
-    /usr/local/bin/dockutil --add /Applications/Brackets.app
-    /usr/local/bin/dockutil --add "/Applications/Sublime Text.app"
-    /usr/local/bin/dockutil --add "/Applications/Visual Studio Code.app"
-    /usr/local/bin/dockutil --add "/Applications/Google Chrome.app"
-    /usr/local/bin/dockutil --add /Applications/Firefox.app
-    /usr/local/bin/dockutil --add "/Applications/GitHub Desktop.app"
-    /usr/local/bin/dockutil --add '~/Downloads'
+dock_items=[
+  "/Applications/Utilities/Terminal.app",
+  "/Applications/Brackets.app",
+  "/Applications/Sublime Text.app",
+  "/Applications/Visual Studio Code.app",
+  "/Applications/Google Chrome.app",
+  "/Applications/Firefox.app",
+  "/Applications/GitHub Desktop.app",
+  '~/Downloads'
+] + node['missionbit']['dock_extras']
 
-	EOF
+dock_script = "/usr/local/bin/dockutil --remove all\n" + dock_items.collect{|i| "/usr/local/bin/dockutil --add #{i}"}.join("\n")
+
+bash 'setup dock' do
+	code dock_script
 	live_stream true
 	action :run
 end
