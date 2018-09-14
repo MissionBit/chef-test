@@ -8,9 +8,13 @@
    "recipe[missionbit::ionic]"
  ],
  "override_attributes":{
- 	"missionbit":{
- 		"munki_args": "--id=ionic"
- 	},
+    "missionbit":{
+        "munki_args": "--id=ionic",
+        "dock_extras": [
+          "/Application/Android Studio.app",
+          "/Applications/Xcode.app"
+        ]
+    },
     "cpe_munki": {
        "preferences": {
           "SoftwareRepoURL": "http://10.0.13.119/munki_repo/"
