@@ -1,0 +1,35 @@
+{
+ "run_list": [
+   "role[ionic]"
+ ],
+
+ "packages" : [
+ ],
+
+ "missionbit": {
+    "dock_extras": [      
+    ]
+ },
+
+ "cpe_munki": {
+    "install" : true,
+    "configure" : true,
+    "auto_remediate": 1,
+    "preferences": {
+       "SoftwareRepoURL": "http://10.0.13.119/munki_repo/",
+       "InstallAppleSoftwareUpdates": true
+    },
+    "munki_version_to_install": {
+       "core":{
+          "version": "3.3.1.3537",
+          "checksum": "7077cef8baafd501911117327a511aad7b1bc54cf31113e5c6b7407340d3407f",
+          "url": "http://10.0.13.119/munki_repo/munkitools-3.3.1.3537.pkg"
+       }
+    }
+ },
+
+ "homedir" : "/Users/missionbit",
+ "user" : "missionbit"
+
+
+}
