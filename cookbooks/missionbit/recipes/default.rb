@@ -8,7 +8,9 @@
 # Run Munki to install apps
 #
 bash 'run munki'  do
-   code "defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL #{	node['cpe_munki']['preferences']['SoftwareRepoURL']} && /usr/local/munki/managedsoftwareupdate && /usr/local/munki/managedsoftwareupdate --installonly"
+   code "defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL #{	node['cpe_munki']['preferences']['SoftwareRepoURL']} && \
+   /usr/local/munki/managedsoftwareupdate #{node['missionbit']['munki_args']} && \
+   /usr/local/munki/managedsoftwareupdate #{node['missionbit']['munki_args']} --installonly"
    live_stream true
    #notifies   :run, "bash[setup dock]", :immediately
 end
