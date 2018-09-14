@@ -7,6 +7,12 @@
    "recipe[missionbit::default]"
  ],
  "override_attributes":{
+ 	"missionbit":{
+        "munki_args": "--id=unity",
+        "dock_extras": [
+	      "/Applications/Unity/Unity.app"
+	    ]
+    },
     "cpe_munki": {
        "preferences": {
           "SoftwareRepoURL": "http://10.0.13.119/munki_repo/"

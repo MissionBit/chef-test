@@ -6,12 +6,6 @@
  "packages" : [
  ],
 
- "missionbit": {
-    "dock_extras": [
-      "/Applications/Unity/Unity.app"
-    ]
- },
-
  "cpe_munki": {
     "install" : true,
     "configure" : true,
