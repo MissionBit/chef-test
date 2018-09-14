@@ -11,3 +11,9 @@ bash 'install ionic' do
 	action :run
 end
 
+bash 'install cordova' do
+	code "npm install -g cordova"
+	live_stream true
+	action :run
+end
+
