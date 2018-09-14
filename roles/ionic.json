@@ -11,7 +11,7 @@
     "missionbit":{
         "munki_args": "--id=ionic",
         "dock_extras": [
-          "/Application/Android Studio.app",
+          "/Applications/Android Studio.app",
           "/Applications/Xcode.app"
         ]
     },
