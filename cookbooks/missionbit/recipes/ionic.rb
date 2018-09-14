@@ -6,7 +6,7 @@
 #
 
 bash 'install ionic' do
-	"npm install -g ionic"
+	code "npm install -g ionic"
 	live_stream true
 	action :run
 end
