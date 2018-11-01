@@ -17,6 +17,13 @@ bash 'install cordova' do
 	action :run
 end
 
+directory '/var/root/.android/' do 
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
 file '/var/root/.android/repositories.cfg' do
 	content ''
 	mode 0644
