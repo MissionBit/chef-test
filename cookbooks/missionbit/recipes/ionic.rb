@@ -17,3 +17,25 @@ bash 'install cordova' do
 	action :run
 end
 
+file '/var/root/.android/repositories.cfg' do
+	content ''
+	mode 0644
+	owner 'root'
+	action :create_if_missing
+end
+
+bash 'install android SDK' do
+	code "yes | sdkmanager \"platforms;android-27\" \"platforms;android-20\" --sdk_root=/Users/missionbit/Library/Android/sdk/"
+	environment 'PATH' => "/usr/local/android/tools/bin/:#{ENV['PATH']}"
+	live_stream true
+	action :run
+end
+
+bash 'disable android studio startup wizard' do
+	code "echo 'disable.android.first.run=true' >>  '/Applications/Android\ Studio.app/Contents/bin/idea.properties'"
+	not_if "grep 'disable\.android\.first\.run' '/Applications/Android\ Studio.app/Contents/bin/idea.properties'"
+	live_stream true
+	user 'root'
+	action :run
+end
+

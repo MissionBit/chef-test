@@ -48,3 +48,9 @@ bash 'setup dock' do
 	action :run
 end
 
+#Enable firewall
+bash 'enable firewall' do 
+  code "/usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on"
+  live_stream true
+  action :run
+end
