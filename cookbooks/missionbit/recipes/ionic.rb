@@ -24,8 +24,10 @@ file '/var/root/.android/repositories.cfg' do
 	action :create_if_missing
 end
 
+#Note: Package files are broken in the current sdkmanager, when this is fixed we should
+# provide a file for the packages we need to install instead of listing them out here.
 bash 'install android SDK' do
-	code "yes | sdkmanager \"platforms;android-27\" \"platforms;android-20\" --sdk_root=/Users/missionbit/Library/Android/sdk/"
+	code "yes | sdkmanager \"sources;android-27\" \"platforms;android-27\" \"sources;android-25\" \"platforms;android-25\" \"build-tools;25.0.2\" \"sources;android-20\" \"platforms;android-20\" --sdk_root=/Users/missionbit/Library/Android/sdk/"
 	environment 'PATH' => "/usr/local/android/tools/bin/:#{ENV['PATH']}"
 	live_stream true
 	action :run
@@ -39,3 +41,15 @@ bash 'disable android studio startup wizard' do
 	action :run
 end
 
+cookbook_file '/Users/missionbit/.bash_profile' do
+	source 'bash_profile'
+	owner 'missionbit'
+	group 'staff'
+	mode '0644'
+	action :create
+end
+
+bash 'source profile' do
+	code "source /Users/missionbit/.bash_profile"
+	action :run
+end
