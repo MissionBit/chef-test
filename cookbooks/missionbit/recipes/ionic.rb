@@ -19,7 +19,7 @@ end
 
 directory '/var/root/.android/' do 
   owner 'root'
-  group 'root'
+  group 'wheel'
   mode '0755'
   action :create
 end
