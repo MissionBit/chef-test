@@ -27,7 +27,7 @@ fi
 
 #Run Munki with role to re-install
 defaults write /Library/Preferences/ManagedInstalls InstallAppleSoftwareUpdates -bool True
-defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL http://10.0.13.119/munki_repo/
+defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL http://10.15.16.154/munki_repo/
 /usr/local/munki/managedsoftwareupdate --id=nuke
 /usr/local/munki/managedsoftwareupdate --id=nuke --installonly
 

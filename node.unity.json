@@ -11,7 +11,7 @@
     "configure" : true,
     "auto_remediate": 1,
     "preferences": {
-       "SoftwareRepoURL": "http://10.0.13.119/munki_repo/",
+       "SoftwareRepoURL": "http://10.15.16.154/munki_repo/",
        "InstallAppleSoftwareUpdates": true
     },
     "munki_version_to_install": {
